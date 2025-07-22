@@ -10,3 +10,13 @@ services:
     volumes:
       - ./web:/usr/irissys/csp/websocket
     command: --check-caps false
+
+  web:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./web:/usr/share/nginx/html:ro
+    depends_on:
+      - iris
+
