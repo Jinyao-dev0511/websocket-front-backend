@@ -69,7 +69,7 @@ function sendMessage() {
     if (!message || !isConnected) return;
 
     ws.send(message);
-    addMessage('You: ' + message, 'sent');
+    addMessage('Client: ' + message, 'sent');
     messageInput.value = '';
 }
 
