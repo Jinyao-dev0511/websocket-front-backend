@@ -1,0 +1,35 @@
+zn "USER"
+
+// Import ObjectScript code with verbose output
+Write "Loading ObjectScript classes...", !
+Do $SYSTEM.OBJ.Load("/opt/irisapp/src/WebSocket/Server.cls", "ck")
+
+// Verify class was loaded
+If ##class(%Dictionary.ClassDefinition).%ExistsId("WebSocket.Server") {
+    Write "✓ WebSocket.Server class loaded successfully", !
+} Else {
+    Write "✗ Failed to load WebSocket.Server class", !
+}
+
+zn "%SYS"
+
+// Create WebSocket web application
+Write "Creating WebSocket web application...", !
+Set webName = "/csp/websocket"
+Set webProperties("NameSpace") = "USER"
+Set webProperties("Enabled") = 1
+Set webProperties("AutheEnabled") = 96
+Set webProperties("MatchRoles") = ":%All"
+Set webProperties("Path") = "/usr/irissys/csp/websocket/"
+
+If ##class(Security.Applications).Exists(webName) {
+    Write "Modifying existing web application...", !
+    Do ##class(Security.Applications).Modify(webName, .webProperties)
+} Else {
+    Write "Creating new web application...", !
+    Do ##class(Security.Applications).Create(webName, .webProperties)
+}
+
+Write "Setup completed!", !
+
+halt

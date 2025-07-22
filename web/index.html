@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple WebSocket Client</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 600px; margin: 0 auto; }
+        .status { padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .connected { background: #d4edda; color: #155724; }
+        .disconnected { background: #f8d7da; color: #721c24; }
+        input, button { padding: 8px; margin: 5px; }
+        input[type="text"] { width: 300px; }
+        #messages { border: 1px solid #ccc; height: 300px; overflow-y: auto; padding: 10px; margin: 10px 0; }
+        .message { margin: 5px 0; padding: 5px; }
+        .sent { background: #e3f2fd; }
+        .received { background: #f3e5f5; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Simple WebSocket Client</h1>
+
+        <div id="status" class="status disconnected">Disconnected</div>
+
+        <div>
+            <input type="text" id="serverUrl" value="ws://localhost:52773/csp/websocket/WebSocket.Server.cls" placeholder="WebSocket URL">
+            <button id="connectBtn">Connect</button>
+            <button id="disconnectBtn" disabled>Disconnect</button>
+        </div>
+
+        <div id="messages"></div>
+
+        <div>
+            <input type="text" id="messageInput" placeholder="Type message..." disabled>
+            <button id="sendBtn" disabled>Send</button>
+            <button id="clearBtn">Clear</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
