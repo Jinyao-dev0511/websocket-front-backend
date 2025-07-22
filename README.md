@@ -35,7 +35,7 @@ A minimal WebSocket application with **vanilla JavaScript** frontend and **Inter
 
 **URL**: `ws://localhost:52773/csp/websocket/WebSocket.Server.cls`
 
-**功能**: 简单的echo服务器 - 发送什么消息就返回什么消息
+**Function**: Simple echo server - returns whatever message you send
 
 ## 📁 Project Structure
 
@@ -76,27 +76,28 @@ docker-compose exec iris iris session iris
 
 ## 🚨 Troubleshooting
 
-### 常见问题
+### Common Issues
 
-1. **IRIS启动失败**
+1. **IRIS startup failure**
    ```bash
    docker-compose down -v
    docker-compose build --no-cache
    docker-compose up -d
    ```
 
-2. **WebSocket连接失败**
+2. **WebSocket connection failure**
    ```bash
-   # 检查日志
+   # Check logs
    docker-compose logs iris
 
-   # 确认端口开放
+   # Verify port is open
    docker-compose ps
    ```
 
-3. **端口冲突**
-   - 修改 `docker-compose.yml` 中的端口 `52773` 为其他端口
+3. **Port conflicts**
+   - Modify port `52773` to another port in `docker-compose.yml`
 
 ---
 
-**简单易用的WebSocket演示项目！ 🎉**
+**Simple and easy-to-use WebSocket demo project! 🎉**
+
